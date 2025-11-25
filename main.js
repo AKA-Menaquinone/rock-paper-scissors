@@ -39,10 +39,24 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
+function playGame() {
+    const humanSelection = getHumanChoice()
+    const computerSelection = getComputerChoice()
+
+    playRound(computerSelection, humanSelection)
+}
+
 let computerScore = 0
 let humanScore = 0
 
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
+playGame()
+playGame()
+playGame()
+playGame()
+playGame()
 
-playRound(computerSelection, humanSelection)
+if (computerScore > humanScore) {
+    console.log(`You lose ${computerScore} to ${humanScore}.`)
+} else {
+    console.log(`You win ${humanScore} to ${computerScore}!`)
+}
