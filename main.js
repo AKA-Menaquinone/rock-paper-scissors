@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    let computerChoice = Math.random()
+    const computerChoice = Math.random()
 
     if (computerChoice < (1/3)) {
         return "Rock"
@@ -10,4 +10,33 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+    const humanChoice = prompt("Rock, Paper, or Scissors?")
+    return humanChoice
+}
+
+function playRound(computerChoice, humanChoice) {
+    if (computerChoice.toLowerCase() === humanChoice.toLowerCase()) {
+        console.log(`It's a tie! You both picked ${computerChoice}.`)
+    } else if (computerChoice === "Rock" && humanChoice.toLowerCase() === "scissors") {
+        console.log("You lose. Rock beats Scissors.")
+    } else if (computerChoice === "Rock" && humanChoice.toLowerCase() === "paper") {
+        console.log("You win! Paper beats Rock.")
+    } else if (computerChoice === "Paper" && humanChoice.toLowerCase() === "rock") {
+        console.log("You lose. Paper beats Rock.")
+    } else if (computerChoice === "Paper" && humanChoice.toLowerCase() === "scissors") {
+        console.log("You win! Scissors beats Paper.")
+    } else if (computerChoice === "Scissors" && humanChoice.toLowerCase() === "rock") {
+        console.log("You win! Rock beats Scissors.")
+    } else if (computerChoice === "Scissors" && humanChoice.toLowerCase() === "paper") {
+        console.log("You lose. Scissors beats Paper.")
+    }
+}
+
+let computerScore = 0
+let humanScore = 0
+
+const humanSelection = getHumanChoice()
+const computerSelection = getComputerChoice()
+
+playRound(computerSelection, humanSelection)
